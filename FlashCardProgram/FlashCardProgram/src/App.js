@@ -26,7 +26,7 @@ class App extends Component{
     }
   }
 
-  componentWillMount(){
+  UNSAFE_componentWillMount(){
     const currentCards = this.state.cards;
 
     this.setState({
