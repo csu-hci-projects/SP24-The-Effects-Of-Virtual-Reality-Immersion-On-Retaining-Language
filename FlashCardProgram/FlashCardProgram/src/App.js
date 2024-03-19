@@ -8,6 +8,8 @@ class App extends Component{
     super(props);
 
     this.updateCard = this.updateCard.bind(this);
+    this.getNextCard = this.getNextCard.bind(this);
+    this.getPrevCard = this.getPrevCard.bind(this);
 
     this.state = {
       cards: [ //10 sample cards to ensure that the program runs 
@@ -22,6 +24,7 @@ class App extends Component{
         {id: 9, english: "English9", foreign: "Foreign9"},
         {id: 10, english: "English10", foreign: "Foreign10"},
       ],
+      currentCardIndex: 0,
       currentCard: {}
     }
   }
@@ -31,25 +34,41 @@ class App extends Component{
 
     this.setState({
       cards: currentCards,
-      currentCard: this.getRandomCard(currentCards)
+      currentCard: currentCards[0]
     })
   }
   
-  getRandomCard(currentCards){
-    var randomIndex = Math.floor(Math.random() * currentCards.length);
-    var card = currentCards[randomIndex];
-    if(card === this.state.currentCard){
-      this.getRandomCard(currentCards)
-    }
-    return(card);
+  getRandomCard(currentCards) {
+    const randomIndex = Math.floor(Math.random() * currentCards.length);
+    return currentCards[randomIndex];
   }
 
-  updateCard(){
-
-    const currentCards = this.state.cards
+  getNextCard() {
+    let nextIndex = this.state.currentCardIndex + 1;
+    if (nextIndex >= this.state.cards.length) {
+      nextIndex = 0; // Loop back to the first card if reached the end
+    }
     this.setState({
-        currentCard: this.getRandomCard(currentCards)
-    })
+      currentCardIndex: nextIndex,
+      currentCard: this.state.cards[nextIndex]
+    });
+  }
+
+  getPrevCard() {
+    let prevIndex = this.state.currentCardIndex - 1;
+    if (prevIndex < 0) {
+      prevIndex = this.state.cards.length - 1; // Loop to the last card if reached the beginning
+    }
+    this.setState({
+      currentCardIndex: prevIndex,
+      currentCard: this.state.cards[prevIndex]
+    });
+  }
+
+  updateCard() {
+    this.setState(prevState => ({
+      currentCard: this.getRandomCard(prevState.cards)
+    }));
   }
 
   render() {
@@ -61,7 +80,11 @@ class App extends Component{
             />
         </div>
         <div className="ButtonRow">
-            <DrawButton drawCard={this.updateCard}/>
+            <DrawButton 
+              drawCard={this.updateCard}
+              getNextCard={this.getNextCard}
+              getPrevCard={this.getPrevCard}
+            />
         </div>
       </div>
     );
