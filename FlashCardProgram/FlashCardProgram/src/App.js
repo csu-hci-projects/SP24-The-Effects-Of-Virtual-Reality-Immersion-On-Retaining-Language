@@ -3,8 +3,8 @@ import './App.css';
 import Card from './Card/Card.js';
 import DrawButton from './DrawButton/DrawButton.js';
 
-class App extends Component{
-  constructor(props){
+class App extends Component {
+  constructor(props) {
     super(props);
 
     this.updateCard = this.updateCard.bind(this);
@@ -13,23 +13,29 @@ class App extends Component{
 
     this.state = {
       cards: [ //10 sample cards to ensure that the program runs 
-        {id: 1, english: "English1", foreign: "Foreign1"},
-        {id: 2, english: "English2", foreign: "Foreign2"},
-        {id: 3, english: "English3", foreign: "Foreign3"},
-        {id: 4, english: "English4", foreign: "Foreign4"},
-        {id: 5, english: "English5", foreign: "Foreign5"},
-        {id: 6, english: "English6", foreign: "Foreign6"},
-        {id: 7, english: "English7", foreign: "Foreign7"},
-        {id: 8, english: "English8", foreign: "Foreign8"},
-        {id: 9, english: "English9", foreign: "Foreign9"},
-        {id: 10, english: "English10", foreign: "Foreign10"},
+        { id: 1, english: "glass ", foreign: "gilasa" },
+        { id: 2, english: "fruits", foreign: "phalaphula" },
+        { id: 3, english: "sink", foreign: "dubne" },
+        { id: 4, english: "wall", foreign: "parkhala" },
+        { id: 5, english: "book", foreign: "pustaka" },
+        { id: 6, english: "door", foreign: "dhoka" },
+        { id: 7, english: "table", foreign: "talika" },
+        { id: 8, english: "lamp", foreign: "batti" },
+        { id: 9, english: "shoes", foreign: "jutta" },
+        { id: 10, english: "laptop", foreign: "lyapatapa" },
+        { id: 11, english: "box", foreign: "baksa" },
+        { id: 12, english: "money", foreign: "paisa" },
+        { id: 13, english: "chair ", foreign: "kursi" },
+        { id: 14, english: "bed", foreign: "ochyana" },
+        { id: 15, english: "phone", foreign: "phona" },
+        { id: 16, english: "headphone", foreign: "hedaphona" },
       ],
       currentCardIndex: 0,
       currentCard: {}
     }
   }
 
-  UNSAFE_componentWillMount(){
+  UNSAFE_componentWillMount() {
     const currentCards = this.state.cards;
 
     this.setState({
@@ -37,7 +43,7 @@ class App extends Component{
       currentCard: currentCards[0]
     })
   }
-  
+
   getRandomCard(currentCards) {
     const randomIndex = Math.floor(Math.random() * currentCards.length);
     return currentCards[randomIndex];
@@ -74,21 +80,28 @@ class App extends Component{
   render() {
     return (
       <div className="App">
-        <div className="CardRow">
-            <Card english={this.state.currentCard.english}
-                  foreign={this.state.currentCard.foreign}
-            />
-        </div>
-        <div className="ButtonRow">
-            <DrawButton 
-              drawCard={this.updateCard}
-              getNextCard={this.getNextCard}
-              getPrevCard={this.getPrevCard}
-            />
-        </div>
+        <div className="TopDisplay">
+        <p>Controls:
+          <br /> Press and hold card to see the reverse side.
+          <br /> Use arrows to navigate through vocabulary list.
+          <br /> Use random button to randomize card pulled.
+        </p>
       </div>
-    );
+            <div className="CardRow">
+              <Card english={this.state.currentCard.english}
+                foreign={this.state.currentCard.foreign}
+              />
+            </div>
+            <div className="ButtonRow">
+              <DrawButton
+                drawCard={this.updateCard}
+                getNextCard={this.getNextCard}
+                getPrevCard={this.getPrevCard}
+              />
+            </div>
+        </div>
+        );
   }
 }
 
-export default App;
+        export default App;
