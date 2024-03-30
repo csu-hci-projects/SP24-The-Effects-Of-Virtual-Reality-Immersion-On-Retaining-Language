@@ -81,11 +81,16 @@ class App extends Component {
     return (
       <div className="App">
         <div className="TopDisplay">
-        <p>Controls:
-          <br /> Press and hold card to see the reverse side.
-          <br /> Use arrows to navigate through vocabulary list.
-          <br /> Use random button to randomize card pulled.
+        <h3> English/Nepali Flashcard Application</h3>
+        <p>
+          This flashcard application is intended to help English speakers to 
+          learn a few words in the Nepali language. 
         </p>
+          <ul>
+            <li> Press and hold card to see the reverse side.</li>
+            <li> Use arrows to navigate through vocabulary list.</li>
+            <li>Use random button to randomize card pulled.</li>
+          </ul>
       </div>
             <div className="CardRow">
               <Card english={this.state.currentCard.english}
