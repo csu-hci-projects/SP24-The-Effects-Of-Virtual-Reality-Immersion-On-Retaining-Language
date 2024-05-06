@@ -1,0 +1,7 @@
+This project explored the effectiveness of high engagement through virtual immersion to increase the retention of
+foreign language vocabulary. This was done by comparing a traditional flash card style learning program against an
+interactive Virtual Reality(VR) program. The VR program is designed to increase the engagement and immersion of an
+individual while they study. VR offers a new medium for foreign language learning, by allowing for physical interaction
+between the participant and a digital representation of the word they are learning "VR learning environments
+represent a promising technology that is now being widely adopted in the educational field." We thought it would
+be beneficial to further explore this technology in a language learning environment.
