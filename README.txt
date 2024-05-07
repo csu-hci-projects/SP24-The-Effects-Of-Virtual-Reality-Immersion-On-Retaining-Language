@@ -2,11 +2,8 @@
 
 ## Project Video Links
 
-Demo of the Flashcard Application 
-https://youtu.be/9cjgFhGDYmw
-
-Demo of the VR Program
-https://youtu.be/-mYJzAdM_Yg
+Project Overview 
+https://youtu.be/VKxzeied9hQ
 
 Project Presentation 
 https://youtu.be/T-QDT1Ebf7E
